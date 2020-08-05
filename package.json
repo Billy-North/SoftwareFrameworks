@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Billy-North/SoftwareFrameworks/issues"
   },
-  "homepage": "https://github.com/Billy-North/SoftwareFrameworks#readme"
+  "homepage": "https://github.com/Billy-North/SoftwareFrameworks#readme",
+  "dependencies": {
+    "node": "^12.18.3"
+  }
 }
