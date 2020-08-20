@@ -1,0 +1,50 @@
+<app-nav></app-nav>
+
+
+<div style="width: 60%; margin: auto;">
+<h1>Welcome, {{username}}</h1>
+
+<h3>Current Details</h3>
+<ul>
+    <li>username: {{username}}</li>
+    <li>Birthdate: {{birthdate}}</li>
+    <li>Age: {{age}}</li>
+    <li>Email: {{email}}</li>
+</ul>
+
+
+<h3>Edit Details</h3>
+
+<table>
+    <tbody>
+        <tr>
+            <td>Username</td>
+            <td><input type="text" [(ngModel)]="editUsername" name="email" class="form-control mb-1" placeholder="username"></td>
+            <td><button type="button" (click)=setUsername() class="btn btn-primary btn-sm">Save</button></td>
+        </tr>
+        <tr>
+            <td>Birthdate</td>
+            <td><input type="text" [(ngModel)]="editBirthdate" name="email" class="form-control mb-1" placeholder="birthdate"></td>
+            <td><button type="button" (click)=setBirthdate() class="btn btn-primary btn-sm">Save</button></td>
+        </tr>
+        <tr>
+            <td>age</td>
+            <td><input type="text" [(ngModel)]="editAge" name="email" class="form-control mb-1" placeholder="age"></td>
+            <td><button type="button" (click)=setAge() class="btn btn-primary btn-sm">Save</button></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" [(ngModel)]="editEmail" name="email" class="form-control mb-1" placeholder="E-mail"></td>
+            <td><button type="button" (click)=setEmail() class="btn btn-primary btn-sm">Save</button></td>
+        </tr>
+    </tbody>
+</table>
+<!-- <ul>
+    <li><span style="display: inline;">Edit Birthdate: <input type="text" [(ngModel)]="email" name="email" class="form-control mb-1" placeholder="E-mail">
+    </span></li>
+
+    <li>{{age}}</li>
+    <li>{{age}}</li>
+    <li>{{email}}</li>
+</ul>
+</div> -->
