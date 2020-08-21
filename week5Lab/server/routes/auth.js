@@ -28,7 +28,8 @@ router.post('/auth', function (req, res) {
 
     const validateUser = checkUser(req.body.username, req.body.password)
     if (validateUser !== false) {
-        res.send(users[validateUser])
+        const user = users[validateUser]
+        res.send({username: user.username, birthdate: user.birthdate,age: user.age,email: user.email})
     } else {
         res.send(false)
     }

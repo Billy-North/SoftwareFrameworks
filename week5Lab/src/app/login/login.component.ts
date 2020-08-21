@@ -30,18 +30,6 @@ export class LoginComponent implements OnInit {
   invalidLogin = false
 
 
-  users: User[] = [
-    {
-      email: '123@mail.com',
-      password: '123'
-    },
-    {
-      email: '456@mail.com',
-      password: '456'
-    }
-  ]
-
-
 
   constructor(
     private router: Router,
@@ -58,6 +46,8 @@ export class LoginComponent implements OnInit {
 
     const bodyData = { username: this.email, password: this.password }
     this.http.post('http://localhost:3000/api/auth', bodyData, httpOptions).subscribe((data: any) => {
+
+    console.log(data)
 
       if (data) {
         if (typeof(Storage) !== undefined) {
