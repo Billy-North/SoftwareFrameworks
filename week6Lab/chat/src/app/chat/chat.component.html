@@ -1,0 +1,14 @@
+<div style="width: 50%; margin: auto;">
+    <h1>Chat</h1>
+    <div class="container">
+        <div class="d-table-cell w-100">
+            <input [(ngModel)]="messageContent" placeholder="Enter message..." class="form-control">
+        </div>
+        <div class="d-table-cell align-middle">
+            <button (click)="chat()" style="width: 115px; margin-left: 3px;" class="btn btn-primary">Send</button>
+        </div>
+    </div>
+    <ul style="list-style-type: none;">
+        <li *ngFor="let message of messages">{{message}}</li>
+    </ul>
+</div>
