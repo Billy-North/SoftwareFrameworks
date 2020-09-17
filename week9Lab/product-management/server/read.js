@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 module.exports = read = (db, ObjectID) => {
+    console.log("Do I ever get to read???")
     const productsCollection = db.collection('Products');
 
     router.get('/products', async (req, res) => {
