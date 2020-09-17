@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const bodyParser = require('body-parser');
-const server = require('./listen.js');
 const MongoClient = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 var cors = require('cors')
@@ -21,37 +20,17 @@ MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, as
     console.log('Connected to MongoDB Database')
     const dbName = 'mydb';
     const db = client.db(dbName);
-    server.listen(http, PORT);
-    const colName = 'Products';
 
-    app.use('/api', read(db,ObjectID));
+    app.listen(PORT, () => {
+        console.log(`Listening on port: ${PORT}`)
+    });
 
 
-    db.createCollection(colName, {
-        validator: {
-            $jsonSchema: {
-                properties: {
-                    Name: {
-                        bsonType: "string",
-                        maxLength: 20
-                    },
-                    Description: {
-                        bsonType: "string",
-                        maxLength: 255
-                    },
-                    Price: {
-                        bsonType: "decimal"
-                    },
-                    units: {
-                        bsonType: "int"
-                    }
-                }
-            }
-        }
+    app.use('/api', read(db));
+    app.use('/api', add(db, ObjectID));
+    app.use('/api', remove(db, ObjectID));
 
-    }, (err) => { if (err) { console.log(err) } })
-
-   // app.use('/api', add(db,ObjectID));
+    // app.use('/api', add(db,ObjectID));
     // app.use('/api', remove(db,ObjectID));
     // app.use('/api', update(db,ObjectID));
 

@@ -1,0 +1,27 @@
+<div style="width: 80%;margin: auto;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Units</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{product._id}}</td>
+                <td>{{product.Name}}</td>
+                <td>{{product.Description}}</td>
+                <td>${{product.Price}}</td>
+                <td>{{product.units}}</td>
+                <td><button type="button" (click)="editProduct(product)" class="btn btn-primary">Edit</button></td>
+                <td><button type="button" class="btn btn-danger">Danger</button></td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
