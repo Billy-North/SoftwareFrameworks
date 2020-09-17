@@ -1,5 +1,19 @@
 <div style="width: 50%; margin: auto;">
     <h1>Chat</h1>
+
+    <h3>Select Room</h3>
+    <div class="form-group">
+            <select class="form-control"(change)="onChange($event.target.value)">
+                <option></option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+      </div>
+
+
+
     <div class="container">
         <div class="d-table-cell w-100">
             <input [(ngModel)]="messageContent" placeholder="Enter message..." class="form-control">

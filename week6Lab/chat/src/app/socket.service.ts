@@ -12,8 +12,9 @@ export class SocketService {
 
   constructor() { }
 
-  public initSocket(): void {
+  public initSocket(room): void {
     this.socket = io(SERVER_URL);
+    this.socket.emit('room', room);
   }
 
   public send(message: string): void {

@@ -15,11 +15,10 @@ export class ChatComponent implements OnInit {
   constructor(private socketService: SocketService) { }
 
   ngOnInit(): void {
-    this.initIoConnection();
   }
 
-  private initIoConnection() {
-    this.socketService.initSocket();
+  private initIoConnection(room: string) {
+    this.socketService.initSocket(room);
     this.ioConnection = this.socketService.onMessage().subscribe((message: string) => {
       this.messages.push(message)
     })
@@ -32,5 +31,11 @@ export class ChatComponent implements OnInit {
       this.messageContent = '';
     }
   }
+
+  onChange(deviceValue) {
+    this.initIoConnection(deviceValue);
+
+
+}
 
 }
