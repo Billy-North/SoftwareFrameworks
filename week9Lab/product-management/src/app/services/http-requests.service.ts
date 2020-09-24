@@ -26,6 +26,17 @@ export class HttpRequestsService {
     return this.http.get(this.url + 'products', httpOptions)
   }
 
+  updateProduct(product: Product): Observable<any> {
+    const bodyData = { id: product._id, name: product.Name, description: product.Description, price: product.Price, units: product.units }
+    return this.http.patch(this.url + 'product', bodyData, httpOptions)
+  }
+
+  deleteProduct(id: string) {
+    return this.http.delete(this.url + 'product/' + id, httpOptions)
+  }
+
+
+
 
 
 

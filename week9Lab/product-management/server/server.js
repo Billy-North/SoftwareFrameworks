@@ -25,13 +25,9 @@ MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, as
         console.log(`Listening on port: ${PORT}`)
     });
 
-
     app.use('/api', read(db));
     app.use('/api', add(db, ObjectID));
     app.use('/api', remove(db, ObjectID));
-
-    // app.use('/api', add(db,ObjectID));
-    // app.use('/api', remove(db,ObjectID));
-    // app.use('/api', update(db,ObjectID));
+    app.use('/api', update(db, ObjectID));
 
 })
